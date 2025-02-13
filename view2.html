@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahuevo Pai</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow-x: hidden; 
+            overflow-y: auto; 
+            position: relative;
+            padding: 1rem;
+        }
+
+        .container {
+            background: rgba(255, 182, 193, 0.9);
+            padding: 1rem;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            margin-top: 1rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            border: none;
+        }
+
+        #video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        /* Ajustes para pantallas pequeñas */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 1rem;
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <video id="video-background" autoplay muted loop>
+        <source src="videoplayback.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+
+    <div class="container">
+        <h1>Te amo con todo mi corazón, Mi July ❤️</h1>
+        <p>Pues ni modo que no, ya llevamos dos años preciosa.
+        Solo quiero decirte que amo bastante y darte las gracias por dejarme estar en tu vida aun recuerdo como dias antes del 14 de febrero me preguntaba que regalarte que estuviera a la talla para ti
+        y aun siento que debo darte mas por que te lo mereces, pero amor te amo y siempre lo hare de eso nunca lo dudes ✨❤️
+        </p>
+        <p>
+            Te dedico esta musica que me recuerda las primera veces y en la actualidad
+        </p>
+
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/Tx4jU1lDj40" 
+                title="Yung Kai — Blue + MV (Traducida al Español)" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParaTiPreciosa</title>
+    <style>
+        @keyframes floatHearts {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        .heart {
+            position: absolute;
+            bottom: 0;
+            font-size: 2.5rem;
+            color: red;
+            animation: floatHearts 5s linear infinite;
+            opacity: 0.8;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            background: rgba(255, 182, 193, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        button {
+            background-color: rgb(228, 126, 126);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        button:hover {
+            background-color: rgb(210, 100, 100);
+            transform: scale(1.05);
+        }
+
+        #noBtn {
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Video de fondo */
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video de fondo -->
+    <video id="video-background" autoplay muted loop>
+        <source src="videoplayback.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+
+    <div class="container">
+        <h1>¿Quieres ser mi San Valentín, mi vida? ❤️</h1>
+        <div class="button-container">
+            <button id="yesBtn" onclick="goToView2()">Sí</button>
+            <button id="noBtn" onmouseover="moveNoButton()">No</button>
+        </div>
+    </div>
+    
+    <script>
+        function goToView2() {
+            document.body.style.transition = 'opacity 1s';
+            document.body.style.opacity = '0';
+            setTimeout(() => { window.location.href = "view2.html"; }, 1000);
+        }
+
+        function createHearts() {
+            setInterval(() => {
+                let heart = document.createElement('div');
+                heart.innerHTML = '❤️✨';
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 4 + 3 + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 7000);
+            }, 300);
+        }
+        createHearts();
+
+        function moveNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            const buttonRect = noBtn.getBoundingClientRect();
+
+            const maxX = containerRect.width - buttonRect.width;
+            const maxY = containerRect.height - buttonRect.height;
+
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+        }
+    </script>
+</body>
+</html>
